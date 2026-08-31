@@ -1,0 +1,13 @@
+# Database configuration
+config/db.php
+
+# XAMPP / local files
+xampp/
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
