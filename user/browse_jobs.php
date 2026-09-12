@@ -235,6 +235,10 @@ $result = $stmt->get_result();
                             <p>
                                 <?php echo nl2br(htmlspecialchars($post["description"])); ?>
                             </p>
+      <a href="apply.php?id=<?php echo $post["id"]; ?>"
+   class="btn btn-success btn-sm">
+    Apply Now
+</a>
 
                         </div>
 

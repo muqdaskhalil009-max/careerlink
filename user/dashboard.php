@@ -1,3 +1,4 @@
+
 <?php
 
 session_start();
@@ -179,9 +180,9 @@ $user_name = $_SESSION["user_name"];
                     Search and explore available jobs and internship opportunities.
                 </p>
 
-                <button class="btn btn-secondary" disabled>
-                    Coming in Module 2
-                </button>
+                <a href="browse_jobs.php" class="btn btn-success">
+                    Browse Opportunities
+                </a>
 
             </div>
 
@@ -206,9 +207,9 @@ $user_name = $_SESSION["user_name"];
                     View and track the status of your job and internship applications.
                 </p>
 
-                <button class="btn btn-secondary" disabled>
-                    Coming in Module 3
-                </button>
+                <a href="application_history.php" class="btn btn-primary">
+                    My Applications
+                </a>
 
             </div>
 
@@ -291,3 +292,4 @@ $user_name = $_SESSION["user_name"];
 </body>
 
 </html>
+

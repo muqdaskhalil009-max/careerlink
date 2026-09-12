@@ -1,3 +1,4 @@
+```php
 <?php
 
 session_start();
@@ -113,19 +114,26 @@ if (!isset($_SESSION["user_id"]) || $_SESSION["user_role"] !== "company") {
                                 <div class="card-body">
 
                                     <h4>
-                                        📋 Job Management
+                                        📋 Job & Application Management
                                     </h4>
 
                                     <p class="text-muted">
-                                        Job posting features will be available in the next module.
+                                        Create, manage, edit and delete your job and internship posts.
                                     </p>
 
-                                    <button
-                                        class="btn btn-secondary"
-                                        disabled
+                                    <a
+                                        href="my_posts.php"
+                                        class="btn btn-primary"
                                     >
-                                        Coming Soon
-                                    </button>
+                                        Manage Job Posts
+                                    </a>
+
+                                    <a
+                                        href="applications.php"
+                                        class="btn btn-success ms-2"
+                                    >
+                                        View Applications
+                                    </a>
 
                                 </div>
 
