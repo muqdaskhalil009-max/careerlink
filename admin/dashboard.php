@@ -3,12 +3,12 @@
 
 session_start();
 
-if (!isset($_SESSION["user_id"]) || $_SESSION["user_role"] !== "company") {
+if (!isset($_SESSION["user_id"]) || $_SESSION["user_role"] !== "admin") {
     header("Location: ../login.php");
     exit;
 }
 
-$company_name = $_SESSION["user_name"];
+$admin_name = $_SESSION["user_name"];
 
 ?>
 
@@ -24,12 +24,16 @@ $company_name = $_SESSION["user_name"];
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>Company Dashboard | CareerLink</title>
+    <title>Admin Dashboard | CareerLink</title>
+
+    <!-- Bootstrap -->
 
     <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
         rel="stylesheet"
     >
+
+    <!-- Bootstrap Icons -->
 
     <link
         rel="stylesheet"
@@ -44,7 +48,9 @@ $company_name = $_SESSION["user_name"];
             font-family: Arial, sans-serif;
         }
 
-        /* Navbar */
+        /* =========================
+           NAVBAR
+        ========================= */
 
         .career-navbar {
             background: linear-gradient(135deg, #0b1f3a, #123f73);
@@ -65,7 +71,7 @@ $company_name = $_SESSION["user_name"];
         }
 
         .logout-btn {
-            border: 1px solid rgba(255,255,255,0.7);
+            border: 1px solid rgba(255, 255, 255, 0.7);
             color: white;
             border-radius: 8px;
             padding: 7px 18px;
@@ -76,7 +82,10 @@ $company_name = $_SESSION["user_name"];
             color: #123f73;
         }
 
-        /* Hero */
+
+        /* =========================
+           HERO
+        ========================= */
 
         .dashboard-hero {
             background: linear-gradient(135deg, #123f73, #1769aa);
@@ -102,14 +111,17 @@ $company_name = $_SESSION["user_name"];
             width: 74px;
             height: 74px;
             border-radius: 18px;
-            background: rgba(255,255,255,0.15);
+            background: rgba(255, 255, 255, 0.15);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 34px;
         }
 
-        /* Section */
+
+        /* =========================
+           SECTION
+        ========================= */
 
         .section-title {
             font-weight: 700;
@@ -120,7 +132,10 @@ $company_name = $_SESSION["user_name"];
             color: #6b7280;
         }
 
-        /* Feature Cards */
+
+        /* =========================
+           ADMIN CARDS
+        ========================= */
 
         .feature-card {
             background: white;
@@ -176,21 +191,10 @@ $company_name = $_SESSION["user_name"];
             color: white;
         }
 
-        .secondary-btn {
-            background: #eef6ff;
-            border: 1px solid #d7eaff;
-            border-radius: 8px;
-            padding: 10px 18px;
-            color: #1769aa;
-            font-weight: 600;
-        }
 
-        .secondary-btn:hover {
-            background: #dceeff;
-            color: #0f4f83;
-        }
-
-        /* Quick Links */
+        /* =========================
+           QUICK ACCESS
+        ========================= */
 
         .quick-link {
             background: white;
@@ -233,7 +237,10 @@ $company_name = $_SESSION["user_name"];
             color: #6b7280;
         }
 
-        /* Footer */
+
+        /* =========================
+           FOOTER
+        ========================= */
 
         footer {
             background: #0b1f3a;
@@ -246,7 +253,10 @@ $company_name = $_SESSION["user_name"];
             color: white;
         }
 
-        /* Responsive */
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
 
         @media (max-width: 768px) {
 
@@ -271,7 +281,9 @@ $company_name = $_SESSION["user_name"];
 <body>
 
 
-<!-- NAVBAR -->
+<!-- =========================
+     NAVBAR
+========================= -->
 
 <nav class="navbar career-navbar">
 
@@ -298,7 +310,9 @@ $company_name = $_SESSION["user_name"];
 </nav>
 
 
-<!-- MAIN CONTENT -->
+<!-- =========================
+     MAIN CONTENT
+========================= -->
 
 <main class="container py-5">
 
@@ -312,17 +326,17 @@ $company_name = $_SESSION["user_name"];
             <div class="col-md-9">
 
                 <p class="text-uppercase small fw-semibold mb-2">
-                    Company Portal
+                    Administration Portal
                 </p>
 
                 <h1>
-                    Company Dashboard
+                    Admin Dashboard
                 </h1>
 
                 <p>
-                    Welcome back,
-                    <strong><?php echo htmlspecialchars($company_name); ?></strong>.
-                    Manage your company profile, opportunities and applications from one place.
+                    Welcome,
+                    <strong><?php echo htmlspecialchars($admin_name); ?></strong>.
+                    Manage and monitor the CareerLink platform from one central workspace.
                 </p>
 
             </div>
@@ -330,7 +344,7 @@ $company_name = $_SESSION["user_name"];
             <div class="col-md-3 text-md-end mt-4 mt-md-0">
 
                 <div class="hero-icon ms-md-auto">
-                    <i class="bi bi-building"></i>
+                    <i class="bi bi-shield-lock-fill"></i>
                 </div>
 
             </div>
@@ -340,16 +354,18 @@ $company_name = $_SESSION["user_name"];
     </div>
 
 
-    <!-- MAIN FEATURES -->
+    <!-- =========================
+         MANAGEMENT
+    ========================= -->
 
     <div class="mb-4">
 
         <h2 class="section-title">
-            Manage Your Company
+            Platform Management
         </h2>
 
         <p class="section-subtitle">
-            Access the tools you need to manage your recruitment activities.
+            Manage users, companies, job opportunities and applications.
         </p>
 
     </div>
@@ -358,9 +374,40 @@ $company_name = $_SESSION["user_name"];
     <div class="row g-4 mb-5">
 
 
-        <!-- PROFILE -->
+        <!-- USERS -->
 
-        <div class="col-lg-4 col-md-6">
+        <div class="col-lg-6 col-md-6">
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    <i class="bi bi-people-fill"></i>
+                </div>
+
+                <h4>
+                    User Management
+                </h4>
+
+                <p>
+                    View and manage registered job seekers and students using the CareerLink platform.
+                </p>
+
+                <a
+                    href="users.php"
+                    class="btn primary-btn"
+                >
+                    <i class="bi bi-people me-1"></i>
+                    Manage Users
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- COMPANIES -->
+
+        <div class="col-lg-6 col-md-6">
 
             <div class="feature-card">
 
@@ -369,19 +416,19 @@ $company_name = $_SESSION["user_name"];
                 </div>
 
                 <h4>
-                    Company Profile
+                    Company Management
                 </h4>
 
                 <p>
-                    Manage your company information and keep your organization profile up to date.
+                    View and manage companies registered on the CareerLink platform.
                 </p>
 
                 <a
-                    href="profile.php"
+                    href="companies.php"
                     class="btn primary-btn"
                 >
-                    <i class="bi bi-pencil-square me-1"></i>
-                    Manage Profile
+                    <i class="bi bi-building me-1"></i>
+                    Manage Companies
                 </a>
 
             </div>
@@ -389,30 +436,30 @@ $company_name = $_SESSION["user_name"];
         </div>
 
 
-        <!-- JOB POSTS -->
+        <!-- JOBS -->
 
-        <div class="col-lg-4 col-md-6">
+        <div class="col-lg-6 col-md-6">
 
             <div class="feature-card">
 
                 <div class="feature-icon">
-                    <i class="bi bi-briefcase"></i>
+                    <i class="bi bi-briefcase-fill"></i>
                 </div>
 
                 <h4>
-                    Job & Internship Posts
+                    Job & Internship Management
                 </h4>
 
                 <p>
-                    Create, edit and manage the job and internship opportunities published by your company.
+                    Monitor job and internship postings published by registered companies.
                 </p>
 
                 <a
-                    href="my_posts.php"
+                    href="jobs.php"
                     class="btn primary-btn"
                 >
-                    <i class="bi bi-list-ul me-1"></i>
-                    Manage Posts
+                    <i class="bi bi-list-check me-1"></i>
+                    Manage Jobs
                 </a>
 
             </div>
@@ -422,27 +469,27 @@ $company_name = $_SESSION["user_name"];
 
         <!-- APPLICATIONS -->
 
-        <div class="col-lg-4 col-md-6">
+        <div class="col-lg-6 col-md-6">
 
             <div class="feature-card">
 
                 <div class="feature-icon">
-                    <i class="bi bi-people"></i>
+                    <i class="bi bi-file-earmark-text-fill"></i>
                 </div>
 
                 <h4>
-                    Applications
+                    Application Monitoring
                 </h4>
 
                 <p>
-                    Review applications submitted by candidates and manage their application status.
+                    Monitor applications submitted by users for available job and internship opportunities.
                 </p>
 
                 <a
                     href="applications.php"
                     class="btn primary-btn"
                 >
-                    <i class="bi bi-person-lines-fill me-1"></i>
+                    <i class="bi bi-clipboard-data me-1"></i>
                     View Applications
                 </a>
 
@@ -454,7 +501,9 @@ $company_name = $_SESSION["user_name"];
     </div>
 
 
-    <!-- QUICK ACCESS -->
+    <!-- =========================
+         QUICK ACCESS
+    ========================= -->
 
     <div class="mb-4">
 
@@ -463,7 +512,7 @@ $company_name = $_SESSION["user_name"];
         </h2>
 
         <p class="section-subtitle">
-            Quickly navigate to the main areas of your company portal.
+            Quickly navigate to the main administration areas.
         </p>
 
     </div>
@@ -472,20 +521,27 @@ $company_name = $_SESSION["user_name"];
     <div class="row g-3">
 
 
-        <div class="col-md-4">
+        <div class="col-md-3">
 
             <a
-                href="profile.php"
+                href="users.php"
                 class="quick-link"
             >
 
                 <div class="quick-link-icon">
-                    <i class="bi bi-person-badge"></i>
+                    <i class="bi bi-person-lines-fill"></i>
                 </div>
 
                 <div>
-                    <strong>Company Profile</strong>
-                    <small>View and update your profile</small>
+
+                    <strong>
+                        Users
+                    </strong>
+
+                    <small>
+                        Manage users
+                    </small>
+
                 </div>
 
             </a>
@@ -493,20 +549,27 @@ $company_name = $_SESSION["user_name"];
         </div>
 
 
-        <div class="col-md-4">
+        <div class="col-md-3">
 
             <a
-                href="my_posts.php"
+                href="companies.php"
                 class="quick-link"
             >
 
                 <div class="quick-link-icon">
-                    <i class="bi bi-file-earmark-text"></i>
+                    <i class="bi bi-buildings"></i>
                 </div>
 
                 <div>
-                    <strong>My Posts</strong>
-                    <small>View your opportunities</small>
+
+                    <strong>
+                        Companies
+                    </strong>
+
+                    <small>
+                        Manage companies
+                    </small>
+
                 </div>
 
             </a>
@@ -514,7 +577,35 @@ $company_name = $_SESSION["user_name"];
         </div>
 
 
-        <div class="col-md-4">
+        <div class="col-md-3">
+
+            <a
+                href="jobs.php"
+                class="quick-link"
+            >
+
+                <div class="quick-link-icon">
+                    <i class="bi bi-briefcase"></i>
+                </div>
+
+                <div>
+
+                    <strong>
+                        Jobs
+                    </strong>
+
+                    <small>
+                        Manage opportunities
+                    </small>
+
+                </div>
+
+            </a>
+
+        </div>
+
+
+        <div class="col-md-3">
 
             <a
                 href="applications.php"
@@ -522,12 +613,19 @@ $company_name = $_SESSION["user_name"];
             >
 
                 <div class="quick-link-icon">
-                    <i class="bi bi-clipboard-check"></i>
+                    <i class="bi bi-file-earmark-check"></i>
                 </div>
 
                 <div>
-                    <strong>Applications</strong>
-                    <small>Review candidate applications</small>
+
+                    <strong>
+                        Applications
+                    </strong>
+
+                    <small>
+                        Monitor applications
+                    </small>
+
                 </div>
 
             </a>
@@ -541,16 +639,20 @@ $company_name = $_SESSION["user_name"];
 </main>
 
 
-<!-- FOOTER -->
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
     <div class="container text-center">
 
-        <strong>CareerLink</strong>
+        <strong>
+            CareerLink
+        </strong>
 
         <div class="small mt-1">
-            Connecting talent with opportunities.
+            Administration Portal
         </div>
 
         <div class="small mt-2">
@@ -561,10 +663,6 @@ $company_name = $_SESSION["user_name"];
 
 </footer>
 
-
-<script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-></script>
 
 </body>
 
